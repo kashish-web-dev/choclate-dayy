@@ -1,0 +1,229 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Chocolate Day ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #3b1f1f, #5a2d2d);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      font-family: 'Pacifico', cursive;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      animation: fadeIn 2s ease;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 500px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      background: #ff9aa2;
+      color: #3b1f1f;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .hero button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Falling Chocolates & Hearts */
+    .falling {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .falling span {
+      position: absolute;
+      top: -50px;
+      font-size: 22px;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+
+    /* Message Card */
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    /* Media Section */
+    .media {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .media img {
+      width: 100%;
+      border-radius: 20px;
+      transition: transform 0.4s;
+    }
+
+    .media img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Teddy */
+    .teddy {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 120px;
+      animation: float 3s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Falling Animation -->
+  <div class="falling" id="falling"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Happy Chocolate Day, My Sweetest Love 🍫❤️</h1>
+    <p>
+      Just like chocolate melts slowly, my love for you grows deeper with every moment.
+    </p>
+    <button onclick="scrollToMessage()">Open My Sweet Message 💝</button>
+  </section>
+
+  <!-- Love Message -->
+  <section id="message">
+    <div class="card">
+      <h2>For My Love 💖</h2>
+      <p style="margin-top:15px; line-height:1.7;">
+        Happy Chocolate Day, my love 🍫❤️  
+        You make my life sweeter in ways no chocolate ever could.  
+        Your smile melts my worries, your presence comforts my heart,  
+        and loving you is my favorite habit.  
+        Today is about chocolate, but forever is about us 💕
+      </p>
+    </div>
+  </section>
+
+  <!-- Media -->
+  <section>
+    <h2>Sweet Moments 🍫</h2>
+    <div class="media">
+      <img src=" C:\Users\PAHWA\Documents\coco\New folder\4.jpeg" alt="chocolate">
+      <img src="C:\Users\PAHWA\Documents\coco\New folder\2.jpeg" alt="love">
+      <img src="C:\Users\PAHWA\Documents\coco\New folder\3.jpeg" alt="heart">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h2>You Are My Favorite Chocolate 🍫💞</h2>
+  </footer>
+
+  <!-- Teddy -->
+  <img class="teddy"
+       src="C:\Users\PAHWA\Documents\coco\New folder\55.png"
+       alt="teddy">
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function scrollToMessage() {
+      document.getElementById("message").scrollIntoView({ behavior: "smooth" });
+    }
+
+    const falling = document.getElementById("falling");
+    const emojis = ["🍫", "❤️", "💖", "🤎"];
+
+    for (let i = 0; i < 40; i++) {
+      let span = document.createElement("span");
+      span.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.animationDuration = 5 + Math.random() * 5 + "s";
+      span.style.fontSize = 16 + Math.random() * 20 + "px";
+      falling.appendChild(span);
+    }
+  </script>
+
+</body>
+</html>
